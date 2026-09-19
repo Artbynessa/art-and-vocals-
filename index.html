@@ -43,6 +43,12 @@
             border-bottom: 1px solid var(--border-color);
         }
 
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
         .brand {
             font-size: 1.4rem;
             font-weight: 900;
@@ -53,9 +59,13 @@
         nav a {
             color: var(--text-sub);
             text-decoration: none;
-            margin-left: 2rem;
+            margin-right: 1.5rem;
             font-weight: 500;
             transition: color 0.2s;
+        }
+
+        nav a:last-child {
+            margin-right: 0;
         }
 
         nav a:hover {
@@ -195,7 +205,14 @@
 <body>
 
     <header>
-        <div class="brand">ARTBYNESSA</div>
+        <div class="header-left">
+            <div class="brand">ARTBYNESSA</div>
+            <nav>
+                <a href="#shop">Shop</a>
+                <a href="#about">About</a>
+                <a href="#catalogue">Catalogue</a>
+            </nav>
+        </div>
         <nav>
             <a href="#art">Art Prints</a>
             <a href="#vocals">Vocal Packs</a>
@@ -206,8 +223,8 @@
         <h1>what you see. what you feel. what it means.</h1>
     </section>
 
-    <div class="container">
-        <div class="grid">
+    <div class="container" id="shop">
+        <div class="grid" id="catalogue">
 
             <!-- ART CARD 1 -->
             <div class="card" id="art">
@@ -284,7 +301,7 @@
         </div>
     </div>
 
-    <footer>
+    <footer id="about">
         <p>&copy; 2026 Artbynessa. All rights reserved.</p>
     </footer>
 
