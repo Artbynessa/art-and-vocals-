@@ -63,7 +63,7 @@
         }
 
         .hero {
-            padding: 5rem 8% 3rem;
+            padding: 5rem 8% 4rem;
             text-align: center;
             background: radial-gradient(circle at 50% 20%, #1a221b 0%, var(--bg-dark) 70%);
         }
@@ -78,34 +78,9 @@
         .hero p {
             color: var(--text-sub);
             max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-
-        /* MOOD FILTER BUTTONS */
-        .mood-filter-container {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            padding: 0 8% 2.5rem;
-        }
-
-        .mood-btn {
-            background: var(--card-bg);
-            color: var(--text-sub);
-            border: 1px solid var(--border-color);
-            padding: 0.6rem 1.4rem;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.2s ease;
-        }
-
-        .mood-btn.active, .mood-btn:hover {
-            background: var(--sage-primary);
-            color: #0a0c0a;
-            border-color: var(--sage-glow);
+            margin: 0 auto;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
         }
 
         .container {
@@ -126,10 +101,6 @@
             display: flex;
             flex-direction: column;
             transition: transform 0.3s, border-color 0.3s;
-        }
-
-        .card.hidden {
-            display: none;
         }
 
         .card:hover {
@@ -240,21 +211,14 @@
 
     <section class="hero">
         <h1>Artbynessa Studio</h1>
-        <p>Explore original fine-art digital prints and studio vocal sample packs categorized by vibe and mood.</p>
+        <p>what you see. what you feel. what it means.</p>
     </section>
-
-    <!-- MOOD FILTER BUTTONS -->
-    <div class="mood-filter-container">
-        <button class="mood-btn active" onclick="filterMood('all')">✨ All Vibes</button>
-        <button class="mood-btn" onclick="filterMood('ethereal')">🌿 Ethereal & Chill</button>
-        <button class="mood-btn" onclick="filterMood('dark')">🖤 Dark & Deep</button>
-    </div>
 
     <div class="container">
         <div class="grid">
 
-            <!-- ETHEREAL ART CARD -->
-            <div class="card" data-mood="ethereal" id="art">
+            <!-- ART CARD 1 -->
+            <div class="card" id="art">
                 <img src="https://picsum.photos/500/400?random=30" alt="Ethereal Art" class="card-img">
                 <div class="card-body">
                     <div class="badge-row">
@@ -270,8 +234,8 @@
                 </div>
             </div>
 
-            <!-- DARK ART CARD -->
-            <div class="card" data-mood="dark">
+            <!-- ART CARD 2 -->
+            <div class="card">
                 <img src="https://picsum.photos/500/400?random=31" alt="Dark Art" class="card-img">
                 <div class="card-body">
                     <div class="badge-row">
@@ -287,8 +251,8 @@
                 </div>
             </div>
 
-            <!-- ETHEREAL VOCAL CARD -->
-            <div class="card" data-mood="ethereal" id="vocals">
+            <!-- VOCAL CARD 1 -->
+            <div class="card" id="vocals">
                 <div class="card-body">
                     <div class="badge-row">
                         <span class="badge">Ethereal</span>
@@ -306,8 +270,8 @@
                 </div>
             </div>
 
-            <!-- DARK VOCAL CARD -->
-            <div class="card" data-mood="dark">
+            <!-- VOCAL CARD 2 -->
+            <div class="card">
                 <div class="card-body">
                     <div class="badge-row">
                         <span class="badge">Dark Trap</span>
@@ -332,22 +296,5 @@
         <p>&copy; 2026 Artbynessa. All rights reserved.</p>
     </footer>
 
-    <!-- JAVASCRIPT FOR MOOD FILTERING -->
-    <script>
-        function filterMood(mood) {
-            const buttons = document.querySelectorAll('.mood-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.currentTarget.classList.add('active');
-
-            const cards = document.querySelectorAll('.card');
-            cards.forEach(card => {
-                if (mood === 'all' || card.getAttribute('data-mood') === mood) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-        }
-    </script>
 </body>
 </html>
