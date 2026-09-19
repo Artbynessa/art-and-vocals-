@@ -3,28 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aura & Echo | Visuals & Vocals</title>
+    <title>Artbynessa | Art & Vocals</title>
     <style>
         :root {
-            --bg-dark: #0a0a0c;
-            --card-bg: #13131a;
-            --accent-purple: #8a2be2;
-            --accent-pink: #ff007f;
-            --text-main: #f0f0f5;
-            --text-muted: #a0a0b0;
-            --border-color: #222230;
+            /* SAGE GREEN, BLACK & WHITE PALETTE */
+            --bg-dark: #0a0c0a;          /* Deep Black Background */
+            --card-bg: #121613;          /* Charcoal Black for Cards */
+            --sage-primary: #8a9a86;     /* Main Sage Green */
+            --sage-glow: #a3b19b;        /* Soft Light Sage */
+            --sage-dark: #2c352b;        /* Muted Dark Sage */
+            --text-light: #f4f6f4;       /* Soft White Text */
+            --text-sub: #b2b8b0;         /* Muted Sage-Gray Subtext */
+            --border-color: #1e241f;     /* Border Color */
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         body {
             background-color: var(--bg-dark);
-            color: var(--text-main);
+            color: var(--text-light);
             line-height: 1.6;
         }
 
@@ -32,191 +34,320 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 5%;
-            background: rgba(10, 10, 12, 0.9);
+            padding: 1.2rem 8%;
+            background: rgba(10, 12, 10, 0.95);
+            backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
             z-index: 100;
-            backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            background: linear-gradient(45deg, var(--accent-pink), var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .brand {
+            font-size: 1.4rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+            color: var(--sage-glow);
+        }
+
+        nav a {
+            color: var(--text-sub);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--sage-glow);
         }
 
         .hero {
+            padding: 5rem 8% 3rem;
             text-align: center;
-            padding: 5rem 1rem;
-            background: radial-gradient(circle at center, #1f1035 0%, var(--bg-dark) 70%);
+            background: radial-gradient(circle at 50% 20%, #1a221b 0%, var(--bg-dark) 70%);
         }
 
         .hero h1 {
             font-size: 3rem;
+            font-weight: 800;
             margin-bottom: 1rem;
+            color: var(--text-light);
         }
 
         .hero p {
-            color: var(--text-muted);
+            color: var(--text-sub);
             max-width: 600px;
             margin: 0 auto 2rem;
         }
 
-        .btn {
-            background: linear-gradient(45deg, var(--accent-pink), var(--accent-purple));
-            color: white;
-            padding: 0.8rem 1.8rem;
-            border: none;
+        /* MOOD FILTER BUTTONS */
+        .mood-filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            padding: 0 8% 2.5rem;
+        }
+
+        .mood-btn {
+            background: var(--card-bg);
+            color: var(--text-sub);
+            border: 1px solid var(--border-color);
+            padding: 0.6rem 1.4rem;
             border-radius: 25px;
             cursor: pointer;
             font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-            transition: transform 0.2s, opacity 0.2s;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
         }
 
-        .btn:hover {
-            transform: translateY(-2px);
-            opacity: 0.9;
+        .mood-btn.active, .mood-btn:hover {
+            background: var(--sage-primary);
+            color: #0a0c0a;
+            border-color: var(--sage-glow);
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin: 3rem 0 1.5rem;
+        .container {
+            padding: 1rem 8% 4rem;
         }
 
-        .grid-container {
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
             gap: 2rem;
-            padding: 0 5% 4rem;
         }
 
         .card {
             background: var(--card-bg);
-            border-radius: 12px;
-            overflow: hidden;
             border: 1px solid var(--border-color);
-            transition: transform 0.3s ease;
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .card.hidden {
+            display: none;
         }
 
         .card:hover {
             transform: translateY(-5px);
+            border-color: var(--sage-primary);
         }
 
         .card-img {
             width: 100%;
-            height: 250px;
+            height: 240px;
             object-fit: cover;
-            background: #1a1a24;
+            background-color: var(--sage-dark);
         }
 
-        .card-content {
+        .card-body {
             padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .badge-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.24rem 0.65rem;
+            border-radius: 12px;
+            font-weight: 700;
+            background: var(--sage-dark);
+            color: var(--sage-glow);
+            border: 1px solid rgba(138, 154, 134, 0.3);
         }
 
         .card-title {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+            margin-bottom: 0.4rem;
+            color: var(--text-light);
         }
 
-        .card-price {
-            color: var(--accent-pink);
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
+        .card-desc {
+            color: var(--text-sub);
+            font-size: 0.88rem;
+            margin-bottom: 1.2rem;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .price {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--text-light);
+        }
+
+        .buy-btn {
+            background: transparent;
+            color: var(--sage-glow);
+            border: 1px solid var(--sage-glow);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .buy-btn:hover {
+            background: var(--sage-glow);
+            color: #0a0c0a;
         }
 
         audio {
             width: 100%;
-            margin-top: 1rem;
+            margin-bottom: 1rem;
             border-radius: 8px;
         }
 
         footer {
             text-align: center;
-            padding: 3rem;
+            padding: 3rem 8%;
             border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
+            color: var(--text-sub);
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">AURA & ECHO</div>
-        <a href="#art" class="btn">Shop Store</a>
+        <div class="brand">ARTBYNESSA</div>
+        <nav>
+            <a href="#art">Art Prints</a>
+            <a href="#vocals">Vocal Packs</a>
+        </nav>
     </header>
 
     <section class="hero">
-        <h1>Where Surreal Visuals Meet Ethereal Vocals</h1>
-        <p>Explore exclusive fine-art digital prints, high-resolution canvases, and chart-ready vocal sample packs crafted for modern producers and collectors.</p>
-        <a href="#art" class="btn">Browse Art Prints</a>
+        <h1>Artbynessa Studio</h1>
+        <p>Explore original fine-art digital prints and studio vocal sample packs categorized by vibe and mood.</p>
     </section>
 
-    <h2 class="section-title" id="art">Digital Art & Prints</h2>
-    <div class="grid-container">
-        <div class="card">
-            <img src="https://picsum.photos/400/300?random=1" alt="Cybernetic Dream" class="card-img">
-            <div class="card-content">
-                <h3 class="card-title">Cybernetic Dream</h3>
-                <div class="card-price">$45.00</div>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">High-resolution 4K digital print with original artwork signed by the artist.</p>
-                <br>
-                <button class="btn">Add to Cart</button>
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://picsum.photos/400/300?random=2" alt="Neon Solitude" class="card-img">
-            <div class="card-content">
-                <h3 class="card-title">Neon Solitude</h3>
-                <div class="card-price">$25.00</div>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">Minimalist urban rain scene under deep magenta neon streetlights.</p>
-                <br>
-                <button class="btn">Add to Cart</button>
-            </div>
-        </div>
+    <!-- MOOD FILTER BUTTONS -->
+    <div class="mood-filter-container">
+        <button class="mood-btn active" onclick="filterMood('all')">✨ All Vibes</button>
+        <button class="mood-btn" onclick="filterMood('ethereal')">🌿 Ethereal & Chill</button>
+        <button class="mood-btn" onclick="filterMood('dark')">🖤 Dark & Deep</button>
     </div>
 
-    <h2 class="section-title" id="vocales">Vocal Sample Packs</h2>
-    <div class="grid-container">
-        <div class="card">
-            <div class="card-content">
-                <h3 class="card-title">Ethereal Dreams Vol. 1</h3>
-                <div class="card-price">$29.00</div>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">40+ dry/wet vocal hooks, stacked harmonies, and atmospheric textures.</p>
-                <audio controls>
-                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-                <br><br>
-                <button class="btn">Buy Pack ($29)</button>
+    <div class="container">
+        <div class="grid">
+
+            <!-- ETHEREAL ART CARD -->
+            <div class="card" data-mood="ethereal" id="art">
+                <img src="https://picsum.photos/500/400?random=30" alt="Ethereal Art" class="card-img">
+                <div class="card-body">
+                    <div class="badge-row">
+                        <span class="badge">Ethereal</span>
+                        <span class="badge">4K Digital Print</span>
+                    </div>
+                    <h3 class="card-title">Sage Horizon</h3>
+                    <p class="card-desc">Minimalist organic aesthetic print signed with full commercial display rights.</p>
+                    <div class="card-footer">
+                        <span class="price">$40.00</span>
+                        <a href="#" class="buy-btn">Purchase</a>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="card">
-            <div class="card-content">
-                <h3 class="card-title">Midnight Phonk & Trap Vocals</h3>
-                <div class="card-price">$35.00</div>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">Gritty pitched vocal phrases, dark chant layers, and aggressive hooks.</p>
-                <audio controls>
-                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-                <br><br>
-                <button class="btn">Buy Pack ($35)</button>
+
+            <!-- DARK ART CARD -->
+            <div class="card" data-mood="dark">
+                <img src="https://picsum.photos/500/400?random=31" alt="Dark Art" class="card-img">
+                <div class="card-body">
+                    <div class="badge-row">
+                        <span class="badge">Dark Mood</span>
+                        <span class="badge">Canvas Print</span>
+                    </div>
+                    <h3 class="card-title">Shadow & Forest</h3>
+                    <p class="card-desc">Atmospheric deep black canvas gallery wrap print delivered directly to you.</p>
+                    <div class="card-footer">
+                        <span class="price">$55.00</span>
+                        <a href="#" class="buy-btn">Purchase</a>
+                    </div>
+                </div>
             </div>
+
+            <!-- ETHEREAL VOCAL CARD -->
+            <div class="card" data-mood="ethereal" id="vocals">
+                <div class="card-body">
+                    <div class="badge-row">
+                        <span class="badge">Ethereal</span>
+                        <span class="badge">120 BPM • F# Minor</span>
+                    </div>
+                    <h3 class="card-title">Ethereal Whispers Vol. 1</h3>
+                    <p class="card-desc">30+ dry/wet vocal loops, atmospheric harmonies, and soft acoustic textures.</p>
+                    <audio controls>
+                        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                    </audio>
+                    <div class="card-footer">
+                        <span class="price">$29.00</span>
+                        <a href="#" class="buy-btn">Buy Pack</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DARK VOCAL CARD -->
+            <div class="card" data-mood="dark">
+                <div class="card-body">
+                    <div class="badge-row">
+                        <span class="badge">Dark Trap</span>
+                        <span class="badge">140 BPM • A Minor</span>
+                    </div>
+                    <h3 class="card-title">Midnight Chant Vocals</h3>
+                    <p class="card-desc">Pitched chants, gritty hooks, and aggressive vocal chops for producers.</p>
+                    <audio controls>
+                        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+                    </audio>
+                    <div class="card-footer">
+                        <span class="price">$35.00</span>
+                        <a href="#" class="buy-btn">Buy Pack</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Aura & Echo. All rights reserved.</p>
+        <p>&copy; 2026 Artbynessa. All rights reserved.</p>
     </footer>
 
+    <!-- JAVASCRIPT FOR MOOD FILTERING -->
+    <script>
+        function filterMood(mood) {
+            const buttons = document.querySelectorAll('.mood-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                if (mood === 'all' || card.getAttribute('data-mood') === mood) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+    </script>
 </body>
 </html>
