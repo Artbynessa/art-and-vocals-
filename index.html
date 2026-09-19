@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura & Echo | Visuals & Vocals</title>
+    <style>
+        :root {
+            --bg-dark: #0a0a0c;
+            --card-bg: #13131a;
+            --accent-purple: #8a2be2;
+            --accent-pink: #ff007f;
+            --text-main: #f0f0f5;
+            --text-muted: #a0a0b0;
+            --border-color: #222230;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: rgba(10, 10, 12, 0.9);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            background: linear-gradient(45deg, var(--accent-pink), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 5rem 1rem;
+            background: radial-gradient(circle at center, #1f1035 0%, var(--bg-dark) 70%);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, var(--accent-pink), var(--accent-purple));
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 0 5% 4rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: #1a1a24;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-price {
+            color: var(--accent-pink);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 1rem;
+            border-radius: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">AURA & ECHO</div>
+        <a href="#art" class="btn">Shop Store</a>
+    </header>
+
+    <section class="hero">
+        <h1>Where Surreal Visuals Meet Ethereal Vocals</h1>
+        <p>Explore exclusive fine-art digital prints, high-resolution canvases, and chart-ready vocal sample packs crafted for modern producers and collectors.</p>
+        <a href="#art" class="btn">Browse Art Prints</a>
+    </section>
+
+    <h2 class="section-title" id="art">Digital Art & Prints</h2>
+    <div class="grid-container">
+        <div class="card">
+            <img src="https://picsum.photos/400/300?random=1" alt="Cybernetic Dream" class="card-img">
+            <div class="card-content">
+                <h3 class="card-title">Cybernetic Dream</h3>
+                <div class="card-price">$45.00</div>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">High-resolution 4K digital print with original artwork signed by the artist.</p>
+                <br>
+                <button class="btn">Add to Cart</button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://picsum.photos/400/300?random=2" alt="Neon Solitude" class="card-img">
+            <div class="card-content">
+                <h3 class="card-title">Neon Solitude</h3>
+                <div class="card-price">$25.00</div>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Minimalist urban rain scene under deep magenta neon streetlights.</p>
+                <br>
+                <button class="btn">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="section-title" id="vocales">Vocal Sample Packs</h2>
+    <div class="grid-container">
+        <div class="card">
+            <div class="card-content">
+                <h3 class="card-title">Ethereal Dreams Vol. 1</h3>
+                <div class="card-price">$29.00</div>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">40+ dry/wet vocal hooks, stacked harmonies, and atmospheric textures.</p>
+                <audio controls>
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <br><br>
+                <button class="btn">Buy Pack ($29)</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <h3 class="card-title">Midnight Phonk & Trap Vocals</h3>
+                <div class="card-price">$35.00</div>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Gritty pitched vocal phrases, dark chant layers, and aggressive hooks.</p>
+                <audio controls>
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <br><br>
+                <button class="btn">Buy Pack ($35)</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Aura & Echo. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
