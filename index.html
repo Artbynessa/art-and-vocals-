@@ -4,38 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artbynessa | Art & Vocals</title>
+
+    <!-- Cormorant Garamond Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            /* SAGE GREEN, BLACK & WHITE PALETTE */
+            /* SAGE GREEN, BLACK & WARM PALETTE */
             --bg-dark: #0a0c0a;          /* Deep Black Background */
             --card-bg: #121613;          /* Charcoal Black for Cards */
             --sage-primary: #8a9a86;     /* Main Sage Green */
-            --sage-glow: #a3b19b;        /* Soft Light Sage */
+            --sage-glow: #c2cbbd;        /* Warm Soft Sage Light */
             --sage-dark: #2c352b;        /* Muted Dark Sage */
             --text-light: #f4f6f4;       /* Soft White Text */
-            --text-sub: #b2b8b0;         /* Muted Sage-Gray Subtext */
+            --text-sub: #a3a8a1;         /* Muted Sage-Gray Subtext */
             --border-color: #1e241f;     /* Border Color */
+
+            /* TYPOGRAPHY */
+            --font-serif: 'Cormorant Garamond', Georgia, serif;
+            --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         body {
             background-color: var(--bg-dark);
             color: var(--text-light);
-            line-height: 1.6;
+            font-family: var(--font-sans);
+            font-weight: 300;
+            line-height: 1.7;
+            letter-spacing: 0.2px;
         }
 
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.2rem 8%;
-            background: rgba(10, 12, 10, 0.95);
+            padding: 1.4rem 8%;
+            background: rgba(10, 12, 10, 0.92);
             backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
@@ -50,18 +62,22 @@
         }
 
         .brand {
-            font-size: 1.4rem;
-            font-weight: 900;
+            font-family: var(--font-serif);
+            font-size: 1.7rem;
+            font-weight: 600;
             letter-spacing: 3px;
             color: var(--sage-glow);
+            text-transform: uppercase;
         }
 
         nav a {
             color: var(--text-sub);
             text-decoration: none;
             margin-right: 1.5rem;
-            font-weight: 500;
-            transition: color 0.2s;
+            font-weight: 400;
+            font-size: 0.92rem;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
         }
 
         nav a:last-child {
@@ -73,23 +89,20 @@
         }
 
         .hero {
-            padding: 5rem 8% 4rem;
+            padding: 6rem 8% 4.5rem;
             text-align: center;
-            background: radial-gradient(circle at 50% 20%, #1a221b 0%, var(--bg-dark) 70%);
+            background: radial-gradient(circle at 50% 30%, #172018 0%, var(--bg-dark) 75%);
         }
 
         .hero h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
+            font-family: var(--font-serif);
+            font-size: 3.4rem;
+            font-weight: 600;        /* Semi-Bold */
+            font-style: italic;       /* Italic */
+            margin-bottom: 0;
             color: var(--text-light);
             letter-spacing: 0.5px;
-        }
-
-        .hero p {
-            color: var(--text-sub);
-            max-width: 600px;
-            margin: 0 auto;
+            line-height: 1.2;
         }
 
         .container {
@@ -139,19 +152,21 @@
         }
 
         .badge {
-            font-size: 0.7rem;
+            font-size: 0.68rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 0.24rem 0.65rem;
+            letter-spacing: 1.2px;
+            padding: 0.25rem 0.65rem;
             border-radius: 12px;
-            font-weight: 700;
+            font-weight: 500;
             background: var(--sage-dark);
             color: var(--sage-glow);
             border: 1px solid rgba(138, 154, 134, 0.3);
         }
 
         .card-title {
-            font-size: 1.25rem;
+            font-family: var(--font-serif);
+            font-size: 1.55rem;
+            font-weight: 600;
             margin-bottom: 0.4rem;
             color: var(--text-light);
         }
@@ -173,8 +188,9 @@
         }
 
         .price {
-            font-size: 1.2rem;
-            font-weight: 800;
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 600;
             color: var(--text-light);
         }
 
@@ -184,9 +200,10 @@
             border: 1px solid var(--sage-glow);
             padding: 0.5rem 1.2rem;
             border-radius: 20px;
-            font-weight: 600;
+            font-weight: 400;
+            font-size: 0.88rem;
             text-decoration: none;
-            transition: all 0.2s;
+            transition: all 0.3s;
         }
 
         .buy-btn:hover {
@@ -205,6 +222,7 @@
             padding: 3rem 8%;
             border-top: 1px solid var(--border-color);
             color: var(--text-sub);
+            font-size: 0.88rem;
         }
     </style>
 </head>
@@ -227,7 +245,6 @@
 
     <section class="hero">
         <h1>what you see. what you feel. what it means.</h1>
-        <p>Explore original fine-art digital prints and studio vocal sample packs categorized by vibe and mood.</p>
     </section>
 
     <div class="container" id="shop">
