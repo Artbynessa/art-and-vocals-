@@ -55,12 +55,6 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 2.5rem;
-        }
-
         .brand {
             font-family: var(--font-serif);
             font-size: 1.7rem;
@@ -70,22 +64,30 @@
             text-transform: uppercase;
         }
 
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
         nav a {
             color: var(--text-sub);
             text-decoration: none;
-            margin-right: 1.5rem;
             font-weight: 400;
-            font-size: 0.92rem;
-            letter-spacing: 0.5px;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
             transition: color 0.3s ease;
-        }
-
-        nav a:last-child {
-            margin-right: 0;
         }
 
         nav a:hover {
             color: var(--sage-glow);
+        }
+
+        .nav-divider {
+            color: var(--border-color);
+            font-size: 0.8rem;
+            user-select: none;
         }
 
         .hero {
@@ -229,17 +231,21 @@
 <body>
 
     <header>
-        <div class="header-left">
-            <div class="brand">ARTBYNESSA</div>
-            <nav>
-                <a href="#shop">Shop</a>
-                <a href="#about">About</a>
-                <a href="#catalogue">Catalogue</a>
-            </nav>
-        </div>
+        <div class="brand">ARTBYNESSA</div>
         <nav>
-            <a href="#art">Art Prints</a>
-            <a href="#vocals">Vocal Packs</a>
+            <a href="#">Home</a>
+            <span class="nav-divider">|</span>
+            <a href="#art">See</a>
+            <span class="nav-divider">|</span>
+            <a href="#art">Feel</a>
+            <span class="nav-divider">|</span>
+            <a href="#vocals">Hear</a>
+            <span class="nav-divider">|</span>
+            <a href="#about">About</a>
+            <span class="nav-divider">|</span>
+            <a href="#shop">Shop</a>
+            <span class="nav-divider">|</span>
+            <a href="#about">Connect</a>
         </nav>
     </header>
 
